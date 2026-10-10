@@ -1,4 +1,4 @@
-const { getInitials, createSlug, average, isPalindrome } = require("./snacks.js");
+const { getInitials, createSlug, average, isPalindrome, findPostsById } = require("./snacks.js");
 
 test("La funzione getInitials restituisce le iniziali di un nome completo", () => {
     expect(getInitials("Mario Rossi")).toBe("M.R.");
@@ -28,4 +28,11 @@ test("La funzione isPalindrome verifica se una stringa sia palindromo o meno", (
 test("La funzione createSlug lancia un errore se il titolo è vuoto o non valido", () => {
     expect(() => createSlug("")).toThrow("Titolo non valido");
     expect(() => createSlug(null)).toThrow("Titolo non valido");
+})
+
+test("La funzione findPostById restituisce il post corretto dato l'array di post e l'id", () => {
+    expect(findPostsById(postsArr, 2)).toEqual({ id: 2, title: "React Hooks", slug: "react-hooks" });
+    expect(findPostsById(postsArr, 3)).toBe(null);
+    expect(() => findPostsById(postsArr, "ciao")).toThrow("Id non valido");
+    expect(() => findPostsById([34, 67], 2)).toThrow("Format non valido");
 })
