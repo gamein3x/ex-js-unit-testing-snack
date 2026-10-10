@@ -9,7 +9,19 @@ function createSlug(str) {
     return str.toLowerCase();
 }
 
+function average(arr){
+    arr.forEach(num => {
+        if (isNaN(num)) {
+            throw new Error("Average vuole solo numeri.");
+        }
+    });
+    const divideNum = arr.length;
+    const sum = arr.reduce((num, acc) => num + acc, 0);
+    return sum/divideNum;
+}
+
 module.exports = {
     getInitials,
-    createSlug
+    createSlug,
+    average
 };
