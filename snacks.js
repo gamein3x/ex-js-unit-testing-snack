@@ -28,9 +28,31 @@ function isPalindrome(word) {
     return word.toLowerCase() === invertedWord;
 }
 
+const postsArr = [
+    { id: 1, title: "Test", slug: "test"},
+    { id: 2, title: "React Hooks", slug: "react-hooks" }
+]
+
+function findPostsById(posts, id){
+    if (isNaN(id)) {
+        throw new Error("Id non valido");
+    }
+    posts.forEach(post => {
+        if (post.id === undefined ||
+            post.title === undefined ||
+            post.slug === undefined
+        ) {
+            throw new Error("Format non valido");
+        }
+    });
+    return posts.find(post => post.id === id) || null;
+}
+
 module.exports = {
     getInitials,
     createSlug,
     average,
-    isPalindrome
+    isPalindrome,
+    findPostsById,
+    postsArr
 };
