@@ -24,3 +24,8 @@ test("La funzione isPalindrome verifica se una stringa sia palindromo o meno", (
     expect(isPalindrome("Anna")).toBeTruthy();
     expect(isPalindrome("carlo")).toBeFalsy();
 })
+
+test("La funzione createSlug lancia un errore se il titolo è vuoto o non valido", () => {
+    expect(() => createSlug("")).toThrow("Titolo non valido");
+    expect(() => createSlug(null)).toThrow("Titolo non valido");
+})
