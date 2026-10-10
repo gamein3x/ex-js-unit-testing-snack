@@ -1,4 +1,4 @@
-const { getInitials, createSlug, average } = require("./snacks.js");
+const { getInitials, createSlug, average, isPalindrome } = require("./snacks.js");
 
 test("La funzione getInitials restituisce le iniziali di un nome completo", () => {
     expect(getInitials("Mario Rossi")).toBe("M.R.");
@@ -18,4 +18,9 @@ test("La funzione average fa una media aritmetica di un array di numeri.", () =>
 
 test("La funzione createSlug restituisce gli spazi come trattini '-'.", () => {
     expect(createSlug("TITOLO molto bello")).toBe("titolo-molto-bello");
+})
+
+test("La funzione isPalindrome verifica se una stringa sia palindromo o meno", () => {
+    expect(isPalindrome("Anna")).toBeTruthy();
+    expect(isPalindrome("carlo")).toBeFalsy();
 })

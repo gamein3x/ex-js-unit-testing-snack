@@ -20,8 +20,14 @@ function average(arr){
     return sum/divideNum;
 }
 
+function isPalindrome(word) {
+    const invertedWord = word.split("").reverse().join("").toLowerCase();
+    return word.toLowerCase() === invertedWord;
+}
+
 module.exports = {
     getInitials,
     createSlug,
-    average
+    average,
+    isPalindrome
 };
