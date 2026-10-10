@@ -5,6 +5,11 @@ function getInitials(name){
     return `${firstInitial.toUpperCase()}.${secondInitial.toUpperCase()}.`
 }
 
+function createSlug(str) {
+    return str.toLowerCase();
+}
+
 module.exports = {
-    getInitials
+    getInitials,
+    createSlug
 };
